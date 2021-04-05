@@ -1,3 +1,8 @@
+import 'dart:io';
+
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+
 class FileUtils {
   static FileUtils get instance => _getInstance();
   static FileUtils _instance; //单例
@@ -74,5 +79,15 @@ class FileUtils {
         break;
     }
     return iconImg;
+  }
+
+  Future<void> getPermission() async {
+    if (Platform.isAndroid) {
+      await Permission.storage.request();
+    }
+  }
+
+  Future<void> getSDCardDir() async {
+    rootPath = (await getExternalStorageDirectory()).path;
   }
 }
