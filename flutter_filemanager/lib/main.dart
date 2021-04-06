@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_filemanager/file_manager.dart';
+import 'package:flutter_filemanager/utils.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Future.wait([
+    initializeDateFormatting("zh_CN", null),
+    FileUtils.instance.getPermission(),
+    FileUtils.instance.getSDCardDir()
+  ]).then((value) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -40,16 +49,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(

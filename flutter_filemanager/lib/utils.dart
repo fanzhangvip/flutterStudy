@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
+import 'package:my_flutter_plugin/my_flutter_plugin.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -36,51 +38,6 @@ class FileUtils {
     return str;
   }
 
-  ///选择文件类型图片
-  String selectIcon(String ext) {
-    String iconImg = 'assets/images/unknown.png';
-
-    switch (ext) {
-      case '.ppt':
-      case '.pptx':
-        iconImg = 'assets/images/ppt.png';
-        break;
-      case '.doc':
-      case '.docx':
-        iconImg = 'assets/images/word.png';
-        break;
-      case '.xls':
-      case '.xlsx':
-        iconImg = 'assets/images/excel.png';
-        break;
-      case '.jpg':
-      case '.jpeg':
-      case '.png':
-        iconImg = 'assets/images/image.png';
-        break;
-      case '.txt':
-        iconImg = 'assets/images/txt.png';
-        break;
-      case '.mp3':
-        iconImg = 'assets/images/mp3.png';
-        break;
-      case '.mp4':
-        iconImg = 'assets/images/video.png';
-        break;
-      case '.rar':
-      case '.zip':
-        iconImg = 'assets/images/zip.png';
-        break;
-      case '.psd':
-        iconImg = 'assets/images/psd.png';
-        break;
-      default:
-        iconImg = 'assets/images/file.png';
-        break;
-    }
-    return iconImg;
-  }
-
   Future<void> getPermission() async {
     if (Platform.isAndroid) {
       await Permission.storage.request();
@@ -88,6 +45,9 @@ class FileUtils {
   }
 
   Future<void> getSDCardDir() async {
-    rootPath = (await getExternalStorageDirectory()).path;
+    // rootPath = (await getExternalStorageDirectory()).path;//使用第三方插件path_provider
+    rootPath = (await MyFlutterPlugin.getExternalStorageDirectory())
+        .path; //使用自定义插件path_provider
+    print('rootPath=$rootPath');
   }
 }
