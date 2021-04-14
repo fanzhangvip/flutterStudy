@@ -36,7 +36,7 @@ dependencies:
   intl: ^0.17.0
   # 使用自定义插件
   my_flutter_plugin:
-    path: my_flutter_plugin
+    path: ../my_flutter_plugin
 
 
 dev_dependencies:

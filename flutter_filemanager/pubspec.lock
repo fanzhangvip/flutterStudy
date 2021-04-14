@@ -117,7 +117,7 @@ packages:
   my_flutter_plugin:
     dependency: "direct main"
     description:
-      path: my_flutter_plugin
+      path: "../my_flutter_plugin"
       relative: true
     source: path
     version: "0.0.1"

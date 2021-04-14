@@ -64,5 +64,10 @@
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.1.0@aar" level="project" />
+    <orderEntry type="module" module-name="FlutterApp.fluttertoast" />
+    <orderEntry type="module" module-name="FlutterApp.permission_handler" />
+    <orderEntry type="module" module-name="FlutterApp.my_flutter_plugin" />
+    <orderEntry type="module" module-name="FlutterApp.open_file" />
+    <orderEntry type="module" module-name="FlutterApp.path_provider" />
   </component>
 </module>
