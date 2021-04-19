@@ -23,7 +23,7 @@ class FlutterActivity : AppCompatActivity() {
             flutterFragment = FlutterFragment.withNewEngine().dartEntrypoint("main").build()
         }
         fragmentManager.beginTransaction()
-            .replace(R.id.fragment_container,flutterFragment, TAG_FLUTTER_FRAGMENT).commitAllowingStateLoss()
-//        GeneratedPluginRegistrant.registerWith(flutterFragment.flutterEngine!!)
+            .replace(R.id.fragment_container,flutterFragment, TAG_FLUTTER_FRAGMENT).commitNow()
+        GeneratedPluginRegistrant.registerWith(flutterFragment.flutterEngine!!)
     }
 }
